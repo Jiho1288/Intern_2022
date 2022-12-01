@@ -1,0 +1,77 @@
+"""
+-----------------  Question  -----------------
+A씨는 두 개의 버전을 비교하는 프로그램을 작성해야 한다.
+버전은 다음처럼 "." 으로 구분된 문자열이다.
+두 개의 버전을 비교하는 프로그램을 작성하시오.
+ex) - 0.0.2 > 0.0.1
+    - 1.0.10 > 1.0.3
+    - 1.2.0 > 1.1.99
+    - 1.1 > 1.0.1
+----------------------------------------------
+"""
+# 과제 1
+## input_1 = "1.0.2"
+## input_2 = "0.9.1"
+## 출력 : 1.0.2 > 0.9.1
+
+def ver_comp(ver1, ver2): #버전을 비교하는 함수
+    a = ver1.split('.') #list를 만들고 split으로 쪼개기
+    b = ver2.split('.')
+
+    for x,y in zip(a, b): # zip 만들고 iter
+        if x > y: # 다르면 출력 return
+            print (ver1, ">", ver2); return
+        elif x < y:
+            print (ver1, "<", ver2); return
+
+    print (ver1, "=", ver2); return # 다르지 않으면 출력 return
+
+
+ver1 = input("1번 파일 버전을 입력하세요:") #Str input
+ver2 = input("2번 파일 버전을 입력하세요:")
+
+if ver1 == ver2: # 값이 같을 땐 "=" 종결
+    print (ver1, "=", ver2)
+else:
+    ver_comp(ver1, ver2)
+
+# 과제 2
+## input_1 = "1.0"
+## input_2 = "1.0.4"
+## 출력 : 1.0 < 1.0.4
+
+def ver_comp(ver1, ver2): #버전을 비교하는 함수
+    a = ver1.split('.') #list를 만들고 split으로 쪼개기
+    b = ver2.split('.')
+
+    if len(a) != len(b): #문자열의 길이가 다를 때
+
+        c = max(len(a), len(b))
+        d = min(len(a), len(b))
+
+        if len(a) > len(b): # 길이가 짧은 쪽 '0' 채워주기(자리 수가 달라도 비교할 수 있게 함)
+            b[d:c] = '0'*(c-d)
+        else:
+            a[d:c] = '0'*(c-d)
+
+    for x,y in zip(a, b): # zip 만들고 iter
+        if x > y: # 다르면 출력 return
+            print (ver1, ">", ver2); return
+        elif x < y:
+            print (ver1, "<", ver2); return
+
+    print (ver1, "=", ver2); return # 다르지 않으면 출력 return
+
+
+ver1 = input("1번 파일 버전을 입력하세요:") #Str input
+ver2 = input("2번 파일 버전을 입력하세요:")
+
+if ver1 == ver2: # 값이 같을 땐 "=" 종결
+    print (ver1, "=", ver2)
+else:
+    ver_comp(ver1, ver2)
+
+# 과제3
+## input_1 = ["0.1.0", "1.0.4.9"]
+## input_2 = ["0.0.1", "1.04.9"]
+## 결과 : 0.1.0 > 0.0.1, 1.0.4.9 < 1.04.9
