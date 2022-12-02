@@ -12,21 +12,8 @@ DashInsert 함수를 완성하자.
 ## 출력 : 3-369-1-741-1
 
 # 과제 1 풀이
-a = input("숫자 : ")                             #숫자인 문자열을 외부입력 값으로 받도록 input 함수 이용
-b = ""                            
-
-for i in range(len(a)-1):                                  #마지막 수를 제외한 문자열 길이만큼 반복문 수행
-    if (int(a[i]) % 2 == 0) and (int(a[i+1]) % 2 == 0):    #문자열에 인덱스로 접근,정수로 변환,짝수인지 확인,다음 수도 짝수라면
-        result += a[i] + "*"                               #결과에 해당 숫자와 * 추가
-    elif (int(a[i]) % 2 == 1) and (int(a[i+1]) % 2 == 1):  #만약 홀수이고 다음 수도 홀수라면
-        result += a[i] + "-"                               #결과에 해당 숫자와 - 추가
-    else:                                                  #짝수 또는 홀수가 연속되지 않는다면
-        result += a[i]                                     #숫자만을 추가
-                                                            
-    if i == (len(a)-2):                                    #마지막 수는 연속되는 수가 없으므로
-        result += a[i+1]                                   #숫자만을 추가
-
-print(b)
+def DashInsert():                   # DashInsert 함수 정의
+a = input("숫자 = ")                 #숫자인 문자열을 외부입력 값으로 받도록 input 함수 이용
 
 ------------------------------------------------------------------------------
 #과제 2. 함수를 만들어서 위 문제를 풀어보세요. (함수명은 "DashInsert"로 지정하세요)
@@ -34,20 +21,5 @@ print(b)
 ## 출력 :  1-32*21478*898*8*8921212*2
 
 # 과제 2 풀이
-def DashInsert():                    #DashInsert라는 함수 정의
-    a = input("숫자를 입력하세요:")  
-    b = ""
-
-    for i in range(len(a)-1):
-        if (int(a[i]) % 2 == 0) and (int(a[i+1]) % 2 == 0):
-            b = b + a[i] + "*"
-        elif (int(a[i]) % 2 == 1) and (int(a[i+1]) % 2 == 1):
-            b = b + a[i] + "-"
-        else:
-            b = b + a[i]
-        
-        if i == (len(a)-2):
-            b = b + a[i+1]
-
-    print(b)
-DashInsert()   #함수 호출
+def DashInsert():                    #DashInsert 함수 정의
+    a = input("숫자 = ")             #숫자인 문자열을 외부입력 값으로 받도록 input 함수 이용
