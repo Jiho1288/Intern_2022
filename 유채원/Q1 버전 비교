@@ -50,8 +50,9 @@ i = 0 #변수 i 생성
 
 if len(a1) != len(b1): #문자열의 길이가 다를 때
 
-        c = max(len(a1), len(b1))
-        d = min(len(a1), len(b1))
+        c = max(len(a1), len(b1))#각 버전의 최대값 반환
+        d = min(len(a1), len(b1))#각 버전의 최솟값 반환 
+
 
         if len(a1) > len(b1): # 길이가 짧은 쪽 '0' 채워주기(자리 수가 달라도 비교할 수 있게 함)
             b1[d:c] = '0'*(c-d)
@@ -67,6 +68,7 @@ for i in range(0,len(a1)): # 변수 i를 0부터 a1의 길이 만큼 담아서
     else:
         print(b, ">", a)
         break
+
 
 # 과제3
 ## input_1 = ["0.1.0", "1.0.4.9"]
@@ -87,8 +89,9 @@ i = 0 #변수 i 생성
 
 if len(a1) != len(b1): #문자열의 길이가 다를 때
 
-        c = max(len(a1), len(b1))
-        d = min(len(a1), len(b1))
+        c = max(len(a1), len(b1))#각 버전의 최대값 반환
+        d = min(len(a1), len(b1))#각 버전의 최솟값 반환 
+
 
         if len(a1) > len(b1): # 길이가 짧은 쪽 '0' 채워주기(자리 수가 달라도 비교할 수 있게 함)
             b1[d:c] = '0'*(c-d)
