@@ -67,3 +67,62 @@ for i in range(0,len(a1)): # 변수 i를 0부터 a1의 길이 만큼 담아서
     else:
         print(b, ">", a)
         break
+
+# 과제3
+## input_1 = ["0.1.0", "1.0.4.9"]
+## input_2 = ["0.0.1", "1.04.9"]
+## 결과 : 0.1.0 > 0.0.1, 1.0.4.9 < 1.04.9
+
+
+a = input('a 입력:') 
+b = input('b 입력:')
+c = input('c 입력:')
+d = input('d 입력:')
+
+a1 = a.split('.')
+b1 = b.split('.')
+c1 = c.split('.')
+d1 = d.split('.')
+i = 0 #변수 i 생성
+
+if len(a1) != len(b1): #문자열의 길이가 다를 때
+
+        c = max(len(a1), len(b1))
+        d = min(len(a1), len(b1))
+
+        if len(a1) > len(b1): # 길이가 짧은 쪽 '0' 채워주기(자리 수가 달라도 비교할 수 있게 함)
+            b1[d:c] = '0'*(c-d)
+        else:
+            a1[d:c] = '0'*(c-d)
+
+
+if len(c1) != len(d1): #문자열의 길이가 다를 때
+
+        e = max(len(c1), len(d1)) #각 버전의 최대값 반환
+        f = min(len(c1), len(d1)) #각 버전의 최솟값 반환 
+
+
+        if len(c1) > len(d1): # 길이가 짧은 쪽 '0' 채워주기(자리 수가 달라도 비교할 수 있게 함)
+            d1[e:f] = '0'*(e-f)
+        else:
+            c1[e:f] = '0'*(e-f)
+
+for i in range(0,len(a1)): # 변수 i를 0부터 a1의 길이 만큼 담아서
+    if int(a1[i]) == int(b1[i]) : #a1과 b1의 버전이 완전히  같다면
+        continue #계속 진행
+    elif int(a1[i]) > int(b1[i]): #a1이 b1보다 크면
+        print(a, ">", b,",") # a에 입력된 버전이 더 큰 것으로 판단
+        break
+    else:
+        print(b, ">", a,",")
+        break
+
+for i in range(0,len(c1)): # 변수 i를 0부터 c1의 길이 만큼 담아서
+    if int(c1[i]) == int(d1[i]) : #c1과 d1의 버전이 완전히  같다면
+        continue #계속 진행
+    elif int(c1[i]) > int(d1[i]): #c1이 d1보다 크면
+        print(c, ">", d) # c에 입력된 버전이 더 큰 것으로 판단
+        break # 그 후 멈추기
+    else:
+        print(d, ">", c)
+        break
