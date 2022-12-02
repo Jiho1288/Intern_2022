@@ -1,0 +1,48 @@
+"""
+-----------------  Question  -----------------
+DashInsert 함수는 숫자로 구성된 문자열을 입력받은 뒤,
+문자열 내에서 홀수가 연속되면 두 수 사이에 - 를 추가하고,
+짝수가 연속되면 * 를 추가하는 기능을 갖고 있다.
+(예, 454 => 454, 4546793 => 454*67-9-3)
+DashInsert 함수를 완성하자.
+입력 - 화면에서 숫자로 된 문자열을 입력받는다. : "4546793"
+출력 - *, -가 적절히 추가된 문자열을 화면에 출력한다. : "454*67-9-3"
+----------------------------------------------
+"""
+# 과제 1. 함수를 만들지 말고, 위 문제를 풀어보세요.
+## input = "336917411"
+## 출력 : 3-369-1-741-1
+
+number = input('숫자를 입력하십시오: ') # 입력값
+result = number[0] # 결과값 
+
+for i in range(len(number)-1): #입력값 number의 전체 개수 만큼 범위를 잡는다
+    if int(number[i]) % 2 == 1 and int(number[i+1]) % 2 == 1: #i에 온 수와 i다음에 온 수가 홀수일 경우
+        result += '-' + number[i+1] #다음 숫자와 -로 연결해준다
+    elif int(number[i]) % 2 == 0 and int(number[i+1]) % 2 == 0: #짝수가 연달아 나온다면
+        result += '*' + number[i+1] # * 추가 
+    else:
+        result += number[i+1] #그 외의 경우는 추가 없이 그대로
+
+print(result)
+
+
+
+
+
+#과제 2. 함수를 만들어서 위 문제를 풀어보세요.(함수명은 "DashInsert"로 지정하세요)
+## input = "13221478898889212122"
+## 출력 :  1-32*21478*898*8*8921212*2
+
+def DashInsert(a): #함수 정의
+    result = "%s" % a[0] #문자열 출력을 위해 %s 형식 사용
+    for i in range(len(a)-1):
+        if int(a[i])%2 == 0 and int(a[i+1])%2 == 0:
+            result += '*'
+        elif int(a[i])%2 == 1 and int(a[i+1])%2 == 1:
+            result += '-'
+        result += a[i+1]
+    return result
+
+a = input('숫자를 입력하십시오:')
+print(DashInsert(a))
