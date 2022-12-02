@@ -13,7 +13,7 @@
 ## 출력 : 15
 
 # 과제 1 풀이
-sum_01 = 0              #sum 함수를 이용해 변수 생성
+sum_01 = 0              # 변수 sum_01 생성
 for i in range(10, 16): # range 함수를 통해 10부터 ~ 15까지 생성
     a = 1               # 변수 a 생성
     for x in str(i):    # i의 값을 x에 저장
@@ -26,7 +26,7 @@ print(sum_01)           # 결과 print
 ## 출력 : 93150
 
 # 과제 2 풀이
-sum_02 = 0                 #sum 함수를 이용해 변수 생성
+sum_02 = 0                 #변수 sum_02 생성
 for y in range(10, 1001): # range 함수를 통해 10부터 ~ 1000까지 생성
     b = 1                 # 변수 b 생성
     for y in str(z):      # y의 값을 z에 저장
