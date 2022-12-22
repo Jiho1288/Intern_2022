@@ -1,0 +1,225 @@
+"""
+- 첫 번째 계산
+  아이들은 여러 자리 숫자들을 더하기 위해서
+  우에서 좌로 숫자를 하나씩 차례대로 더 하라고 배웠다.
+  1을 한 숫자 위치에서 다음 자리로 더하기위해 이동하는 "한자리 올림"연산을
+  많이 발견하는 것은 중요한 도전이 된다.
+  당신의 일은 교육자가 그들의 어려움을 평가하기 위하여,
+  덧셈 문제들의 각 집합에 대해서 한자리올림 연산들의 수를 계산하는 것이다.
+- 입력
+  입력의 각 라인은 10개의 숫자들보다 미만인 양의 정수들 두 개를 포함한다.
+  입력의 마지막 라인은 0 0 을 포한한다.
+- 출력
+  마지막을 제외한 입력의 각 라인에 대해서 당신은 두 숫자들을 더한 결과에서
+  한자리올림 연산들의 수를 아래 처럼 보여지는 형식으로 계산하여 출력해야 한다.
+[입력 샘플]
+123 456
+555 555
+123 594
+0 0
+[출력 샘플]
+No carry operation
+3 carry operation
+1 carry operation
+"""
+
+
+==========================================================================
+# 과제 1. 입력 값의 자릿수가 같을 때 한자리 올림 계산 횟수를 출력하시오.
+## Input :  123 456
+            555 555
+            123 594
+            0 0
+## 출력 :   No carry operation
+           3 carry operation
+           1 carry operation
+## 조건 1> 입력이 총 4번 완료된 후에 계산이 수행되도록 하세요.
+## 조건 2> 입력값은 '123 456'의 형태로 받습니다.
+==========================================================================
+
+a, b = input().split() #값을 여러 개 입력 받음
+d, e = input().split()
+f, g = input().split()
+h, i = input().split()
+c = 0
+
+if (input == '0 0'): #'0 0'이 나오면
+    print(' ') #빈칸이 출력되게
+
+if(len(a) != len(b)):  #자릿수가 같지 않을 때
+    if(int(a) < int(b)): #정수 b가 정수 a보다 크면
+        a,b =b,a 
+    b = "0"*(len(a) - len(b)) + b #자리 맞추기 위해서 길이를 뺐을 때, 0을 넣어서 길이를 맞춰줌
+    a = list(map(int,a)) #map을 사용해 리스트의 요소를 지정된 함수로 처리하고, 요소를 정수 변환 
+    b = list(map(int,b)) 
+else:
+    a = list(map(int,a)) #그 밖의 경우엔 그냥 리스트에 넣어서 정수로 변환
+    b = list(map(int,b))
+
+
+for i in range(0,len(a)): #0부터 a의 길이 만큼 반복했을 때
+    if(a[(len(a) -1) - i] + b[(len(b) - 1) - i] >= 10): #올림수를 위해 값의 길이에서 뺀 값에 입력된 수를 빼주고 입력값을 곱해서 합한 게 10보다 크거나 같을 때,
+        if(i == len(a) -1 ): #
+            c +=1 #올림수 카운트함
+        else:
+            a[(len(a) -1) - (i+1)] += a[(len(a) -1) - i] + b[(len(b) - 1) - i] // 10 #그 밖의 경우 자릿수 올림 계산을 위해 10으로 나눔
+            c +=1 #
+            
+if(c == 0):
+    print("No carry operation")
+else:
+    print("%d carry operation" %c)
+
+
+        
+if(len(d) != len(e)):
+    if(int(d) < int(e)):
+        d,e =d,e
+    e = "0"*(len(d) - len(e)) + e
+    d = list(map(int,d))
+    e = list(map(int,e))
+else:
+    d = list(map(int,d))
+    e = list(map(int,e))
+for i in range(0,len(d)):
+    if(d[(len(d) -1) - i] + e[(len(e) - 1) - i] >= 10):
+        if(i == len(d) -1 ):
+            c +=1
+        else:
+            a[(len(d) -1) - (i+1)] += d[(len(d) -1) - i] + e[(len(e) - 1) - i] // 10 
+            c +=1
+if(c == 0):
+    print("No carry operation")
+else:
+    print("%d carry operation" %c)
+
+
+if(len(f) != len(g)):
+    if(int(f) < int(g)):
+        f,g =g,f
+    g = "0"*(len(f) - len(g)) + g
+    f = list(map(int,f))
+    g = list(map(int,g))
+else:
+    f = list(map(int,f))
+    g = list(map(int,g))
+for i in range(0,len(f)):
+    if(f[(len(f) -1) - i] + g[(len(g) - 1) - i] >= 10):
+        if(i == len(f) -1 ):
+            c = 1
+        else:
+            f[(len(f) -1) - (i+1)] += f[(len(f) -1) - i] + g[(len(g) - 1) - i] // 10 
+            c = 1
+
+            
+if(c == 0):
+    print("No carry operation")
+else:
+    print("%d carry operation" %c)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==========================================================================
+# 과제 2. 입력 값의 자릿수가 다를 때의 한자리 올림 계산 횟수를 출력하시오.
+## Input : 13 452
+           55 555
+           1009 99
+           0 0
+## 출력 : No carry operation
+         2 carry operation
+         1 carry operation
+## 조건 1> 입력이 총 4번 완료된 후에 계산이 수행되도록 하세요.
+## 조건 2> 입력값은 '13 452'의 형태로 받습니다.
+==========================================================================
+
+a, b = input().split() #값을 여러 개 입력 받음
+d, e = input().split()
+f, g = input().split()
+h, i = input().split()
+c = 0
+
+if (input == '0 0'): #'0 0'이 나오면
+    print(' ') #빈칸이 출력되게
+
+if(len(a) != len(b)):  #자릿수가 같지 않을 때
+    if(int(a) < int(b)): #정수 b가 정수 a보다 크면
+        a,b =b,a 
+    b = "0"*(len(a) - len(b)) + b #자리 맞추기 위해서 길이를 뺐을 때, 0을 넣어서 길이를 맞춰줌
+    a = list(map(int,a)) #map을 사용해 리스트의 요소를 지정된 함수로 처리하고, 요소를 정수 변환 
+    b = list(map(int,b)) 
+else:
+    a = list(map(int,a)) #그 밖의 경우엔 그냥 리스트에 넣어서 정수로 변환
+    b = list(map(int,b))
+
+
+for i in range(0,len(a)): #0부터 a의 길이 만큼 반복했을 때
+    if(a[(len(a) -1) - i] + b[(len(b) - 1) - i] >= 10): #올림수를 위해 값의 길이에서 뺀 값에 입력된 수를 빼주고 입력값을 곱해서 합한 게 10보다 크거나 같을 때,
+        if(i == len(a) -1 ): #
+            c +=1 #올림수 카운트함
+        else:
+            a[(len(a) -1) - (i+1)] += a[(len(a) -1) - i] + b[(len(b) - 1) - i] // 10 #그 밖의 경우 자릿수 올림 계산을 위해 10으로 나눔
+            c +=1 #
+            
+if(c == 0):
+    print("No carry operation")
+else:
+    print("%d carry operation" %c)
+
+
+        
+if(len(d) != len(e)):
+    if(int(d) < int(e)):
+        d,e =d,e
+    e = "0"*(len(d) - len(e)) + e
+    d = list(map(int,d))
+    e = list(map(int,e))
+else:
+    d = list(map(int,d))
+    e = list(map(int,e))
+for i in range(0,len(d)):
+    if(d[(len(d) -1) - i] + e[(len(e) - 1) - i] >= 10):
+        if(i == len(d) -1 ):
+            c +=1
+        else:
+            a[(len(d) -1) - (i+1)] += d[(len(d) -1) - i] + e[(len(e) - 1) - i] // 10 
+            c +=1
+if(c == 0):
+    print("No carry operation")
+else:
+    print("%d carry operation" %c)
+
+
+if(len(f) != len(g)):
+    if(int(f) < int(g)):
+        f,g =g,f
+    g = "0"*(len(f) - len(g)) + g
+    f = list(map(int,f))
+    g = list(map(int,g))
+else:
+    f = list(map(int,f))
+    g = list(map(int,g))
+for i in range(0,len(f)):
+    if(f[(len(f) -1) - i] + g[(len(g) - 1) - i] >= 10):
+        if(i == len(f) -1 ):
+            c = 1
+        else:
+            f[(len(f) -1) - (i+1)] += f[(len(f) -1) - i] + g[(len(g) - 1) - i] // 10 
+            c = 1
+
+            
+if(c == 0):
+    print("No carry operation")
+else:
+    print("%d carry operation" %c)
+
