@@ -12,7 +12,7 @@
 
 counting = 0 #카운트할 값 지정
 
-for i in range(10000): 
+for i in range(10001): 
     for s in str(i): #i를 문자열로 하고, 8을 세기 위해 S를 넣어줌
         if s == '8': counting = counting+1  #그래서 S에 8이라는 문자가 있다면 계속해서 1 더하기
 
