@@ -40,7 +40,7 @@ for i in range(10):
     key = str(i)
     dic[key] = 0
 
-for number in range(10, 20):
+for number in range(10, 16):
     for n in str(number):
         dic[n] += 1
 
@@ -48,6 +48,8 @@ for i in range(10):
     key = str(i)
     if dic[key] != 0:
         print(key + ' = ' + str(dic[key]) + '개')
+    elif dic[key] == 0:
+        print(key + ' = ' + str(dic[key]) + '개') #key값이 0인 경우에도 갯수 출력(0개) 하도록 만듦
 
 
 # 과제 3. 1~1000까지의 각 숫자 개수를 출력하세요
