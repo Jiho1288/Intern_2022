@@ -20,7 +20,7 @@ while True:
     password=''
     
     for i in range(len(sen)): #문장의 길이만큼 반복
-        if user[i] in big: #문장에 해당하는 숫자가 big(대문자) 안에 있다면
+        if sen[i] in big: #문장에 해당하는 숫자가 big(대문자) 안에 있다면
             password=password+big[(big.index(sen[i])+n)%26]  #big 안에 있는 수에 입력되는 n만큼 더해서 26으로 나눔
             ##그렇게 나눈 것이 암호가 됨
 
@@ -51,7 +51,7 @@ while True:
         if sen[i] in small: #문장에 해당하는 숫자가 small(소문자) 안에 있다면
             password=password+small[(small.index(sen[i])+n)%26]  #small 안에 있는 수에 입력되는 n만큼 더해서 26으로 나눔
             ##그렇게 나눈 것이 암호가 됨
-        elif user[i] in big: 
+        elif sen[i] in big: 
             password=password+big[(big.index(sen[i])+n)%26] 
         else:
             password=password+sen[i] #그 밖의 것은 패스워드에 더해서 그대로 출력
@@ -80,7 +80,7 @@ while True:
         if sen[i] in small: #문장에 해당하는 숫자가 small(소문자) 안에 있다면
             password=password+small[(small.index(sen[i])+n)%26]  #small 안에 있는 수에 입력되는 n만큼 더해서 26으로 나눔
             ##그렇게 나눈 것이 암호가 됨
-        elif user[i] in big: 
+        elif sen[i] in big: 
             password=password+big[(big.index(sen[i])+n)%26] 
         else:
             password=password+sen[i] #그 밖의 것은 패스워드에 더해서 그대로 출력
