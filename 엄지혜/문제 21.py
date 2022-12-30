@@ -37,29 +37,12 @@
 
 #과제 1 풀이
 n = int(input("input = "))       #n에 input을 이용하여 외부값을 받고 이를 숫자로 변환하여 저장
-ramp = {True:'yes', False:'no'}  #
-state = False                    # off
-for i in range(1, n+2):
-  if n%i == 0:
-    state = not(state)
+ramp = {True:'yes', False:'no'}  #ramp에 {True:'yes', False:'no'}저장
+state = False                    #state에 False저장
+for i in range(1, n+2):          #for문을 이용하여 range를 이용해 1부터 n+1까지 범위 지정/반복 
+  if n%i == 0:                   #if문을 이용하여 n을 i로 나눈 값이 0과 같다면
+    state = not(state)           #state에 not(state)저장
 
-print(ramp[state])
-#----------------------------------------------
-#과제 1 : 복도에 있는 n번째 전구의 최종 상태를 출력하시오.
-#        - 조건 : 0은 입력의 끝을 의미하며 그 값은 처리하지 않는다.
-#        input = [3, 6241, 8191, 0] (만약 전구번호가 3이면, 3번 왕복한 후의 전구상태를 출력하는 코드를 짜면 된다.)
-#        출력 : (테스트 케이스마다 한 줄에 하나씩 출력해야함.)
-#              no
-#              yes
-#              no
+print(ramp[state])               #결과값 출력
 
-#과제 2 풀이 
-n = int(input("input = "))
-ramp = {True:'yes', False:'no'}
-state = False # off
-for i in range(1, n+2):
-  if n%i == 0:
-    state = not(state)
-
-print(ramp[state])
 #----------------------------------------------
