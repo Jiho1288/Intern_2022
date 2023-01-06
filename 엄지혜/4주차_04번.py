@@ -130,14 +130,69 @@ A(['4873279','888-4567','487-3279','4-8-7-32-79-','8884567','8-8-845-67'])  #A�
 #        888-4567 3
 
 #과제 3 풀이
-def phone_number_list():                    
-    n = int(input('입력받을 전화번호 수: '))    #12
-    num_list = []
-    for i in range(n):
-        num = input()
-        num_list.append(change_str2num(num))
-    
-#    print(num_list)    
-    change_3_4(num_list)
+def phone_number(INPUT_LIST):
+    num_lst = ['0', '1', 'ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PRS', 'TUV', 'WXY']
+    count_num_zip = []
+    print_num_zip = []
 
-phone_number_list()
+    for input_ in INPUT_LIST:
+        input_ = input_.replace('-', '')
+        input_ = list(map(str, input_))
+
+        for i in range(len(input_)):
+            for j in range(10):
+                if input_[i] in num_lst[j]:
+                    input_[i] = str(j)
+        input_ = '{}-{}'.format(''.join(input_)[:3], ''.join(input_)[3:])
+        count_num_zip.append(input_num)
+
+        if input_num in print_num_zip:
+            continue
+        print_num_zip.append(input_num)
+
+    if count_num_zip == print_num_zip:                    # 만약 전화번호에 중복이 없다면, 'No duplicates.' 출력
+        print('No duplicates.')
+
+    for print_num in sorted(print_num_zip):               # 오름차순으로 정렬한 print_num_zip을 하나씩 분해
+        count_num = count_num_zip.count(print_num)        # count_num = 모든 전화번호의 리스트에서 해당 전화번호 카운트
+        if count_num == 1:                                # 만약 등장횟수가 1이라면, 건너뛰기
+            continue
+
+        print(print_num, count_num)                       # 전화번호와 등장횟수 출력
+
+if __name__ == '__main__':
+    # input_count 입력받을 때, 이를 숫자(정수)로 변환
+    input_count = int(input('입력할 전화번호의 개수를 입력하세요 : '))
+    # 만약 범위를 벗어났다면, 예외 발생시키기
+    if not input_count <= 100000:
+        raise Exception('잘못 입력했습니다. (전화번호의 개수 <= 100,000)')
+
+    # input_num_zip = 입력받은 전화번호의 리스트가 될 빈 리스트
+    input_num_zip = []
+    for x in range(input_count):                          # input_count만큼 다음 행위 반복
+        input_num = input('전화번호를 입력하세요 : ')      # 입력받은 전화번호를 리스트에 추가
+        input_num_zip.append(input_num)
+
+    is_callnumber_final(input_num_zip)                    # is_callnumber_final 실행
+
+    for print_num in sorted(print_num_zip):               # 오름차순으로 정렬한 print_num_zip을 하나씩 분해
+        count_num = count_num_zip.count(print_num)        # count_num = 모든 전화번호의 리스트에서 해당 전화번호 카운트
+        if count_num == 1:                                # 만약 등장횟수가 1이라면, 건너뛰기
+            continue
+
+        print(print_num, count_num)                       # 전화번호와 등장횟수 출력
+
+if __name__ == '__main__':
+    # input_count 입력받을 때, 이를 숫자(정수)로 변환
+    input_count = int(input('입력할 전화번호의 개수를 입력하세요 : '))
+    # 만약 범위를 벗어났다면, 예외 발생시키기
+    if not input_count <= 100000:
+        raise Exception('잘못 입력했습니다. (전화번호의 개수 <= 100,000)')
+
+    # input_num_zip = 입력받은 전화번호의 리스트가 될 빈 리스트
+    input_num_zip = []
+    for x in range(input_count):                          # input_count만큼 다음 행위 반복
+        input_num = input('전화번호를 입력하세요 : ')      # 입력받은 전화번호를 리스트에 추가
+        input_num_zip.append(input_num)
+
+  phone_number(input_num_zip)                    # is_callnumber_final 실행
