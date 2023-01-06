@@ -85,24 +85,24 @@ print(a('F101010'))                         #값 출력
 #        487-3279 3
 
 #과제 2 풀이
-def A(num_list):                 #def로 변수 생성
-    NLIST = []                   #NLIST명의 빈 리스트 생성
-    for num in LIST:             #for문을 이용하여 num을 LIST만큼 반복
-        num = list(num)          #'4', '8'... 
-        while '-' in num:
-            num.remove('-')  # '-' 삭제
-        num.insert(3, '-')   #num 리스트의 3번 인덱스에 '-' 추가
-        NLIST.append(''.join(num))   #표준형
-    result = dict()          #등장횟수
-    for i in list(set(NLIST)):    #중복없앤걸 list형태로 for문 반복
-        cnt = NLIST.count(i)      # new_num_list 요소가 몇개인지 찾음
-        if cnt !=1:    
-            result[i] = cnt  # result 딕셔너리에 추가      #i(전화번호) key : cnt(등장횟수) value
-    result = sorted(result.items()) #key(전화번호) 기준으로 정렬 후 튜플로 반환
-    for b, c in result:      # result 순서대로 출력
-        print(b, b)
+def A(num_list):                   #def로 변수 생성
+    NLIST = []                     #NLIST명의 빈 리스트 생성
+    for num in LIST:               #for문을 이용하여 num을 LIST만큼 반복
+        num = list(num)            #num를 리스트로 변경 후 저장
+        while '-' in num:          #while문을 이용하여 '-'를 num만큼 반복
+            num.remove('-')        #num에 remove를 이용하여 '-' 삭제
+        num.insert(3, '-')         #num 리스트의 3번 인덱스에 '-' 추가
+        NLIST.append(''.join(num)) #NLIST에 append를 통해 'num'을 추가
+    result = dict()               #result에 dict로 빈 딕셔너리 생성
+    for i in list(set(NLIST)):    #for문에서 set을 이용해 NLIST의 중복을 삭제하고 list로 만들고 이 값만큼 i 반복
+        cnt = NLIST.count(i)      #NLIST에서 i를 찾아 cnt에 저장
+        if cnt !=1:               #if문을 이용해 만약 cnt가 1과 같지 않다면
+            result[i] = cnt       #딕셔너리 result에 cnt저장
+    result = sorted(result.items()) #result의 값을 items를 통해 리턴하여 정열된 새로운 리스트로 리턴하여 result에 저장
+    for b, c in result:           #딕셔너리 result의 순서대로 프린트
+        print(b, b)          
 
-A(['4873279','888-4567','487-3279','4-8-7-32-79-','8884567','8-8-845-67'])
+A(['4873279','888-4567','487-3279','4-8-7-32-79-','8884567','8-8-845-67'])  #A에 input값 대입
 
 #=============================================================================
 #과제 3. input의 전화번호와 표준형으로 바꾸었을 때, 표준형 전화번호의 등장횟수를 출력하시오. 
@@ -130,7 +130,7 @@ A(['4873279','888-4567','487-3279','4-8-7-32-79-','8884567','8-8-845-67'])
 #        888-4567 3
 
 #과제 3 풀이
-def phone_number_list():
+def phone_number_list():                    
     n = int(input('입력받을 전화번호 수: '))    #12
     num_list = []
     for i in range(n):
