@@ -122,7 +122,7 @@ def stan(n):
         elif i in ['W','X','Y']:
             a += '9'
 
-    a = a[:3]+'-'+a[3:] 
+    a = a[:3]+'-'+a[3:] #3자리마다 - 넣어주기
     return a
 
 
@@ -192,21 +192,25 @@ def stan(n):
         elif i in ['W','X','Y']:
             a += '9'
 
-    a = a[:3]+'-'+a[3:] 
+    a = a[:3]+'-'+a[3:] #3자리마다 - 넣어주기
     return a
 
 
 
 num = int(input('input: '))
 b = list()
-while 1: 
+
+while True: 
     b.append(input()) #리스트 안에 추가
-    if len(b) == num: 
-        break
+    if len(b) == num: #같아지면
+        break #멈춤
+        
 num_2 = list(map(stan, b)) #map으로 리스트의 요소를 지정된 함수로 처리, 리스트로 만듦
 num_2 .sort() #오름차순으로 정리
+
 num_3  = list(set(num_2 )) #set으로 중복 집합 처리
 num_3.sort() #처리한 것을 오름차순으로 정리
+
 c = list()
 if num_2  == num_3: #두 넘버가 같다면
     print("")
