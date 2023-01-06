@@ -1,0 +1,87 @@
+"""
+아래와 같은 결과를 출력하는 function을 구현하라
+bool OneEditApart(string s1, string s2)
+OneEditApart("cat", "dog") = false
+OneEditApart("cat", "cats") = true
+OneEditApart("cat", "cut") = true
+OneEditApart("cat", "cast") = true
+OneEditApart("cat", "at") = true
+OneEditApart("cat", "acts") = false
+한개의 문자를 삽입, 제거, 변환을 했을때 s1, s2가 동일한지를 판별하는 OneEditApart 함수를 작성하시오.
+"""
+"""
+=============================================================================
+과제1. s1을 기준으로 한개의 문자를 삽입, 제거, 변환하였을 경우 s2가 나올 수 있는지 판별하시오.
+       - 조건 : 문자열에서 문자 1개를 삽입, 제거, 변환할 수 있는 횟수는 총 1회이다. (예 : 삽입과 제거 동시 사용 불가능)
+       - s1 = ‘cat’
+       - s2 =‘cats’
+       - 출력 = true
+=============================================================================
+"""
+def edit(s1,s2):
+    count=0 #글자가 다를 때 값을 더할 변수
+    if len(s2)-len(s2)>=2: #길이가 다르니 길이를 비교, 두 문자의 길이가 2이상 차이 나면       
+        return "false" #false 출력
+
+    elif len(s2)-len(s1)==1: #길이의 차가 1이면
+        for i in range(min(len(s1),len(s2))): #최소 길이만큼 반복해서
+            if s1[i]!=s2[i]: #최소 길이내 두 문자가 다르다면
+                return "false" #false 출력
+
+        return "true" #동일하면 true 출력
+
+    else:
+        for i in range(len(s1)): #글자 만큼일 때, 반복 진행
+            if s1[i]!=s2[i]: #두 문자가 다르면
+                count+=1 #1씩 더해줌
+
+        if count!=1: #그렇게 해서 개수가 1이 아니면 false 출력
+            return "false" 
+        else: #그 외의 경우 true 출력
+            return "true"
+
+s1 = input('s1 = ')
+s2 = input('s2 = ')
+print(edit(s1, s2)) 
+
+
+
+
+
+
+
+"""
+=============================================================================
+과제2. s1을 기준으로 한개의 문자를 삽입, 제거, 변환하였을 경우 s2가 나올 수 있는지 판별하시오.
+       - 조건 : 문자열에서 문자 1개를 삽입, 제거, 변환할 수 있는 횟수는 총 1회이다. (예 : 삽입과 제거 동시 사용 불가능)
+       - s1 = ‘cat’
+       - s2 =‘acts’
+       - 출력 = false
+=============================================================================
+"""
+
+def edit(s1,s2):
+    count=0 #글자가 다를 때 값을 더할 변수
+    if len(s2)-len(s2)>=2: #길이가 다르니 길이를 비교, 두 문자의 길이가 2이상 차이 나면       
+        return "false" #false 출력
+
+    elif len(s2)-len(s1)==1: #길이의 차가 1이면
+        for i in range(min(len(s1),len(s2))): #최소 길이만큼 반복해서
+            if s1[i]!=s2[i]: #최소 길이내 두 문자가 다르다면
+                return "false" #false 출력
+
+        return "true" #동일하면 true 출력
+
+    else:
+        for i in range(len(s1)): #글자 만큼일 때, 반복 진행
+            if s1[i]!=s2[i]: #두 문자가 다르면
+                count+=1 #1씩 더해줌
+
+        if count!=1: #그렇게 해서 개수가 1이 아니면 false 출력
+            return "false" 
+        else: #그 외의 경우 true 출력
+            return "true"
+
+s1 = input('s1 = ')
+s2 = input('s2 = ')
+print(edit(s1, s2)) 
