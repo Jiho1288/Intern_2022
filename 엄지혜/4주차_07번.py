@@ -16,36 +16,50 @@
 #       - 출력 = true
 
 #과제 1 풀이
-def OneEditApart(s1, s2):           # 함수 생성
-    if len(s1) > len(s2):           # s1이 s2보다 길 때
-        s1, s2 = s2, s1             # s1, s2를 각각 s2, s1으로 변환
-    len_diff = len(s2) - len(s1)    # 두 문자의 글자 수 차이를 저장
+def A(s1, s2):                    #def를 이용해 A명의 함수 생성
+    s1 = list(s1)                 #s1를 list로 변경
+    s2 = list(s2)                 #s2를 list로 변경
+    if len(s1)+1 <len(s2):        #if문을 이용해 len를 통해 s1의 길이를 구하고 이 값에 1을 더한 값이 len를 이용해 구한 s2의 길이보다 크다면
+        result = False            #result는 False
+    elif len(s1)-1 >len(s2):      #s1의 길이에 1을 뺀 값이 s2의 길이보다 크다면
+        result = False            #result는 False
+    elif len(s1)+1 == len(s2):    # s1의 길이에 1을 더한 값이 s2의 길이와 같다면
+        for i in range(len(s2)):  #for문을 이용해 i를 s2의 길이만큼 반복
+            if not(s2[i] in s1):  #s2[i]가 s1에 없다면
+                del s2[i]         #del을 이용해 s2[i] 삭제
+                if s2 == s1:      #if문을 이용해 s2가 s1과 같다면
+                    result = True #result는 true
+                    break         #break로 탈출
+                else:             #else : if 조건문의 반대/if문을 이용해 s2가 s1과 같지 않다면
+                    result = False  #result는 Fasle
+    elif len(s1)-1 == len(s2):    #s1길이 -1이 s2와 같다면
+        idx_s1 = []               #idx_s1 명의 빈리스트 갱성
+        for i in range(len(s2)):  #for문을 이용해 s2의 길이만큼 i 반복
+            if not(s2[i] in s1):  #if문을 이용해 만약 s1에 s2[i]값이 없다면
+                result = False    #result는 false
+                break             #break로 탈출
+            else:                 #if문을 이용해 만약 s1에 s2[i]값이 있다면
+                idx = s1.index(s2[i]) #s2[i]가 s1의 몇번째 인덱스인지 찾고 이를 idx에 할당
+                idx_s1.append(idx)    #idx_s1에 append를 통해 idx추가
+        if idx_s1 == sorted(idx_s1):  #idx_s1이 만약 오름차순이먄
+            result = True             #result는 true
+        else:                         #오른차순이 아니라면
+            result = False            #result는 false    
+    elif len(s1) == len(s2):          #s1의 길이와 s2의 길이가 같다면
+        cnt = 0                       #cnt 변수 생성
+        for i in range(len(s2)):      #for문을 이용해 i가 s2의 길이만큼 반복된다면
+            if s1[i] == s2[i]:        #만약 s[i]와 s2[i]가 같다면
+                cnt +=1               #cnt에 1씩 더하여 할당
+        if cnt == len(s2)-1:          #만약 cnt가 s2의 길이 -1값과 같다면 
+            result = True             #result는 true
+        else:                         #만약 cnt가 s2의 길이 -1값과 다르면
+            result = False            #result는 False 
+    return result                     #결과 반환
 
-    if len_diff > 1:                # 글자 수가 2개 이상 차이날 때
-        return 'false'              # false 반환
+s1 ='cat'            #값 프린트 
+s2 ='cats'
+print(A(s1,s2))
 
-    elif len_diff == 0:             # 문자의 길이가 같을 때 변환 가능 여부 확인
-        different = 0               # 한 글자씩 비교하여 글자가 다른 경우 1씩 더할 변수
-        for i in range(len(s2)):            # 한 글자씩 비교
-            if s2[i] != s1[i]:              # 두 글자가 다를 때
-                different += 1              # 변수에 1씩 더함
-        if different <= 1:                  # 다른 글자가 1개 이하인 경우
-            return 'true'                   # true 반환
-        return 'false'                  # 글자가 두 개 이상 다른 경우 false 반환
-
-    else:                           # 두 문자의 길이 차이가 1인 경우
-        for j in range(len(s1)):    # 더 짧은 길이의 문자 수만큼 반복
-            if s1[j] != s2[j]:      # 한 글자씩 비교했을 때 문자가 다른 경우
-                s2.pop(j)           # 더 긴 문자의 해당 글자를 지운다.
-                if s1 != s2:        # 그래도 두 문자가 다르다면
-                    return 'false'  # false 반환
-        return 'true'               # 동일한 경우 true 반환
-
-
-if __name__ == '__main__':
-    s1 = list(input("첫 번째 문자를 입력하세요: "))
-    s2 = list(input("두 번째 문자를 입력하세요: "))
-    print(OneEditApart(s1, s2))
 #=============================================================================
 #과제2. s1을 기준으로 한개의 문자를 삽입, 제거, 변환하였을 경우 s2가 나올 수 있는지 판별하시오.
 #       - 조건 : 문자열에서 문자 1개를 삽입, 제거, 변환할 수 있는 횟수는 총 1회이다. (예 : 삽입과 제거 동시 사용 불가능)
@@ -57,5 +71,46 @@ if __name__ == '__main__':
 if __name__ == '__main__':
     s1 = list(input("첫 번째 문자를 입력하세요: "))
     s2 = list(input("두 번째 문자를 입력하세요: "))
-    print(OneEditApart(s1, s2))
+
+def A(s1, s2):                    #def를 이용해 A명의 함수 생성
+    s1 = list(s1)                 #s1를 list로 변경
+    s2 = list(s2)                 #s2를 list로 변경
+    if len(s1)+1 <len(s2):        #if문을 이용해 len를 통해 s1의 길이를 구하고 이 값에 1을 더한 값이 len를 이용해 구한 s2의 길이보다 크다면
+        result = False            #result는 False
+    elif len(s1)-1 >len(s2):      #s1의 길이에 1을 뺀 값이 s2의 길이보다 크다면
+        result = False            #result는 False
+    elif len(s1)+1 == len(s2):    # s1의 길이에 1을 더한 값이 s2의 길이와 같다면
+        for i in range(len(s2)):  #for문을 이용해 i를 s2의 길이만큼 반복
+            if not(s2[i] in s1):  #s2[i]가 s1에 없다면
+                del s2[i]         #del을 이용해 s2[i] 삭제
+                if s2 == s1:      #if문을 이용해 s2가 s1과 같다면
+                    result = True #result는 true
+                    break         #break로 탈출
+                else:             #else : if 조건문의 반대/if문을 이용해 s2가 s1과 같지 않다면
+                    result = False  #result는 Fasle
+    elif len(s1)-1 == len(s2):    #s1길이 -1이 s2와 같다면
+        idx_s1 = []               #idx_s1 명의 빈리스트 갱성
+        for i in range(len(s2)):  #for문을 이용해 s2의 길이만큼 i 반복
+            if not(s2[i] in s1):  #if문을 이용해 만약 s1에 s2[i]값이 없다면
+                result = False    #result는 false
+                break             #break로 탈출
+            else:                 #if문을 이용해 만약 s1에 s2[i]값이 있다면
+                idx = s1.index(s2[i]) #s2[i]가 s1의 몇번째 인덱스인지 찾고 이를 idx에 할당
+                idx_s1.append(idx)    #idx_s1에 append를 통해 idx추가
+        if idx_s1 == sorted(idx_s1):  #idx_s1이 만약 오름차순이먄
+            result = True             #result는 true
+        else:                         #오른차순이 아니라면
+            result = False            #result는 false    
+    elif len(s1) == len(s2):          #s1의 길이와 s2의 길이가 같다면
+        cnt = 0                       #cnt 변수 생성
+        for i in range(len(s2)):      #for문을 이용해 i가 s2의 길이만큼 반복된다면
+            if s1[i] == s2[i]:        #만약 s[i]와 s2[i]가 같다면
+                cnt +=1               #cnt에 1씩 더하여 할당
+        if cnt == len(s2)-1:          #만약 cnt가 s2의 길이 -1값과 같다면 
+            result = True             #result는 true
+        else:                         #만약 cnt가 s2의 길이 -1값과 다르면
+            result = False            #result는 False 
+    return result                     #결과 반환
+
+    print(OneEditApart(s1, s2))       #프린트
 #=============================================================================
