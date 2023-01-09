@@ -7,6 +7,15 @@
 #      - 출력값 : 232,792,560
 
 #과제 1 풀이
+from math import lcm           #math 라이브러리에 있는 최소공배수를 계산하는 lcm 함수를 import
+num_range = [1,20]             #num_range 명의 리스트에 1과 20 저장
+   
+num_list = list(range(num_range[0],num_range[1]+1)) #((인덱스로 num_range의 0번째 순서인 1 ~ 1번째 순서인 20 + 1 = 21) range로 범위 지정) list()하여 n_list에 저장
+print(num_list)                  #n_list 출력
 
+while len(num_list) != 1:        #n_list의 길이(n_list의 갯수 = 1개)가 1이 아니라면/while문으로 반복
+    num_list[0:2] = [lcm(num_list[0],num_list[1])]  #[슬라이싱을 통해 n_list의 (0번째 ~ 2번째) = (인덱스를 통해 n_list의 0번째, n_list의 1번째)의 최소공배수]로 바꿈
+
+print(format(num_list[0],','))   #n_list의 0번째를 format하여 출력
 
 #========================================================================
