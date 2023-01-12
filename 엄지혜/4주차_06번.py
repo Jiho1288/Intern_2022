@@ -12,16 +12,16 @@
 #       - 출력 : [2,5,6]
 
 #과제 1 풀이
-LIST = input("input = ").split(',')                 # input으로 받은 외부값을 splist를 이용해 ','를 기준으로 나누어 LIST에 저장
-for i in range(1, len(LIST)):                       # for문을 이용하여 i를 1부터 LIST의 길이 -1 만큼 반복
+LIS = input("input = ").split(',')                 # input으로 받은 외부값을 splist를 이용해 ','를 기준으로 나누어 LIST에 저장
+for i in range(1, len(LIS)):                       # for문을 이용하여 i를 1부터 LIST의 길이 -1 만큼 반복
     for j in range(i):                              # for문을 이용해 j를 i만큼 반복
-        if LIST[j] < LIST[i]:                       # if를 이용해 LIST[j]가 LIST[i]보다 작으면
+        if LIS[j] < LIS[i]:                       # if를 이용해 LIST[j]가 LIST[i]보다 작으면
             pass                                    # 패스
         else:                                       # else : if문의 반대/LIST[j]가 LIST[i]보다 크면
-            LIST.insert(j, LIST[i])                 # LIST에 insert를 이용해 글자 삽입
-            LIST = LIST[:(i + 1)] + LIST[(i + 2):]  # LIST에 i+1값을 한칸씩 띄운 리스트와 +2값을 한칸씩 띄운 리스트 저장
+            LIS.insert(j, LIS[i])                 # LIST에 insert를 이용해 글자 삽입
+            LIS = LIS[:(i + 1)] + LIS[(i + 2):]  # LIST에 i+1값을 한칸씩 띄운 리스트와 +2값을 한칸씩 띄운 리스트 저장
             break                                   # break로 구문 탈출
-print(LIST)                                         #결과값 프린트
+print(LIS).join                                         #결과값 프린트
 
 #=============================================================================
 #과제 2. 위 문제의 알고리즘으로 배열을 정렬하시오
@@ -39,6 +39,6 @@ for i in range(1, len(LIST)):                       # for문을 이용하여 i�
             LIST.insert(j, LIST[i])                 # LIST에 insert를 이용해 글자 삽입
             LIST = LIST[:(i + 1)] + LIST[(i + 2):]  # LIST에 i+1값을 한칸씩 띄운 리스트와 +2값을 한칸씩 띄운 리스트 저장
             break                                   # break로 구문 탈출
-print(LIST)                                         #결과값 프린트
+print(LIST)                                       #결과값 프린트
 
 #=============================================================================
