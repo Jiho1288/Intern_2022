@@ -49,10 +49,11 @@ n = input("input = ").split(',')      #n에 input을 통해 외부값을 받아 
 ML = []                               #ML명의 빈 리스트 생성
 for x in range(len(n)):               #for문을 이용해 x를 len를 통해 n의 길이만큼 반복
     m = '1'                           #M에 '1' 저장
-    while True                        #while문을 이용해 참거짓 무한루프 생성
-       if int(m) % int(n[i]) != 0:    #if문을 이용해 int를 이용해 숫자로 변환한 M을 int를 통해 숫자로 변환한 n[x]으로 나누었을 때 값이 0이 아니라면
+    while True:                       #while문으로 무한루프 생성
+           if int(m) % int(n[x]) != 0:    #if문을 이용해 int를 이용해 숫자로 변환한 M을 int를 통해 숫자로 변환한 n[x]으로 나누었을 때 값이 0이 아니라면
             m += '1'                  #M에 '1'씩 더하여 할당
-        else:                         #else를 통해 if의 반대일 경우 / int를 이용해 숫자로 변환한 M을 int를 통해 숫자로 변환한 n[x]으로 나누었을 때 값이 0이라면
-            ML.append(len(m))         #빈 리스트 ML에 len를 통해 M의 길이를 할당
-            break                     #break문을 통해 무한루프 while문 탈출
+           else:                         #else를 통해 if의 반대일 경우 / int를 이용해 숫자로 변환한 M을 int를 통해 숫자로 변환한 n[x]으로 나누었을 때 값이 0이라면
+                ML.append(len(m))         #빈 리스트 ML에 len를 통해 M의 길이를 할당
+                break                     #break문을 통해 무한루프 while문 탈출
+
 print(ML)                             #ML 프린트
