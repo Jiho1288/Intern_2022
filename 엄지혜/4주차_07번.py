@@ -69,9 +69,8 @@ print(A(s1,s2))
 
 #과제 2 풀이
 if __name__ == '__main__':
-    s1 = list(input("첫 번째 문자를 입력하세요: "))
-    s2 = list(input("두 번째 문자를 입력하세요: "))
-
+    s1 = list(input("s1: "))
+    s2 = list(input("s2: "))
 def A(s1, s2):                    #def를 이용해 A명의 함수 생성
     s1 = list(s1)                 #s1를 list로 변경
     s2 = list(s2)                 #s2를 list로 변경
@@ -112,5 +111,5 @@ def A(s1, s2):                    #def를 이용해 A명의 함수 생성
             result = False            #result는 False 
     return result                     #결과 반환
 
-    print(OneEditApart(s1, s2))       #프린트
+print(A(s1, s2))       #프린트
 #=============================================================================
