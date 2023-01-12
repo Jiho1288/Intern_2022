@@ -48,7 +48,7 @@ def PR(n):                           #def를 이용해 PR 명의 함수 생성
             break                    #break를 통해 무한반복 루프 탈출 
         RE1 +=1                      #RE에 1씩 더하여 할당
         n = int(n)                   #n에 n을 정수로 변환해 저장
-    print(str(RE)+" "+str(n))        #str로 문자로 변환한 RE와 str로 숫자로 변환한 n을 붙혀서 프린트 / RE와 n 사이를 " " 한칸 띄음
+    print(str(RE1)+" "+str(n))        #str로 문자로 변환한 RE와 str로 숫자로 변환한 n을 붙혀서 프린트 / RE와 n 사이를 " " 한칸 띄음
 PR(195)                              #PR에 195 대입
 
 #=============================================================================
@@ -73,6 +73,19 @@ def PR2(n):                          #def를 이용해 PR2 명의 함수 생성
             if n[y] ==n[-(y+1)]:     #if문을 이용하여 n[y]값이 n[-(y+1)]값과 같다면
                 RE2 +=1              #RE2에 1씩 더하여 할당
         if RE2 == len(n)//2:         #if문을 이용하여 RE2값이 n을 2로 나눈 몫과 같다면 
+            break                    #break를 통해 무한반복 루프 탈출
+        RE1 += 1                       #RE에 1씩 더하여 할당
+        n = int(n)                   #n에 n을 정수로 변환해 저장
+    print(str(n))                    #str로 n를 문자로 변환후 출력
+def PRL(n):                          #def로 PRL 명의 함수 생성
+    number_list = []                         #PRL의 빈리스트 생성
+    for Z in range(n):               #for문을 이용해 z를 n만큼 반복
+        number = int(input('INPUT = '))  #input_number에 input으로 외부값을 받고 이를 int로 바꾸어 저장
+        number_list.append(number)   #input_number_list에 input_list를 appand를 이용하여 추가
+    for i in number_list:           #for문을 이용하여 z를 input_number_list만큼 반복
+        PR2(i)                       #PR2 에 z 대입 
+PRL(3)                 #input_number_list에 3 대입
+#=============================================================================
             break                    #break를 통해 무한반복 루프 탈출
         RE +=1                       #RE에 1씩 더하여 할당
         n = int(n)                   #n에 n을 정수로 변환해 저장
