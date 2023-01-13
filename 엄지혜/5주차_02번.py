@@ -18,11 +18,12 @@
 num_list = input('num_list = ').split(', ')  #num_list에 input을 통해 외부값을 받고
                                              #split를 통해 ','를 기준으로 쪼개서 저장
 
-for i in range(len(num_list)):               #for문을 이용해 i를 num_list의 길이만큼 반복
-    for j in range(i+1, len(num_list)):      #for문을 이용해 j를 (i+1부터 ~ num_list의 길이까지) 반복
+for i in range(len(num_list)):                                              #for문을 이용해 i를 num_list의 길이만큼 반복
+    for j in range(i+1, len(num_list)):                                     #for문을 이용해 j를 (i+1부터 ~ num_list의 길이까지) 반복
         if int(num_list[i] + num_list[j]) < int(num_list[j] + num_list[i]): #if문을 통해 만약 [(num_list의 i번째 + num_list의 j번째) int로 정수로 변환 값 < (num_list의 j번째 + num_list의 i번째) int로 정수로 변환 한 값] 이라면 
             num_list[i], num_list[j] = num_list[j], num_list[i]             #num_list의 i번째, num_list의 j번째 = num_list의 j번째, num_list의 i번째
-
-# 과제 1, 2 출력
-print(','.join(num_list))
+num_list1 = num_list[0]
+num_list2 = (num_list[1] + num_list[2])
+num_list3 = (num_list[3] + num_list[4])
+print(num_list1+','+num_list2+','+num_list3)
 #========================================================================
