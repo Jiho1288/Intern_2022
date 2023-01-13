@@ -53,11 +53,11 @@ a = int(str(n)[:2])                                          # a = 문자 n의 �
 b = 10**(len(str(n))-1)                                      # b = n을 문자로 변환, 이의 길이 -1에 10을 거듭제곱한 값
 
 if 0 < n < 11:                                               # if문을 이용해 n 값이 0보다 크고 11보다 작을 때 
-    result.append(n-1)                                       # 빈 리스트, result에 n-1값을 추가
+    print(n-1)                                               # 빈 리스트, result에 n-1값을 추가
 elif a < 11:                                                 # 만약 a가 11보다 작을 때
-    result.append(str(n-int(b/10))+str(n-int(b/10))[-2::-1]) # 빈리스트 result에 str(n-int(b/10))+str(n-int(b/10))[-2::-1]값 추가 
+    print(str(n-int(b/10))+str(n-int(b/10))[-2::-1])         # 빈리스트 result에 str(n-int(b/10))+str(n-int(b/10))[-2::-1]값 추가 
 elif a < 20:                                                 # 만약 a가 20보다 작을 때 
-     result.append(str(n-b)+str(n-b)[::-1])                  # 빈리스트 result에 result.append(str(n-b)+str(n-b)[::-1])값 추가
+    print(str(n-b)+str(n-b)[::-1])                           # 빈리스트 result에 result.append(str(n-b)+str(n-b)[::-1])값 추가
 else:                                                        # 다 아니면
-        result.append(str(n-b)+str(n-b)[-2::-1])             # 빈리스트 result에 str(n-b)+str(n-b)[-2::-1] 값을 추가
+    print(str(n-b)+str(n-b)[-2::-1])                         # 빈리스트 result에 str(n-b)+str(n-b)[-2::-1] 값을 추가
 #=======================================================================
